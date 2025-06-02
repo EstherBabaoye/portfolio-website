@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import HeroImage from "../assets/IMG_8306.JPG"; // Adjust path if different
+import HeroImage from "../assets/IMG_8306.JPG";
 
 export const Hero = () => {
   return (
@@ -31,26 +31,26 @@ export const Hero = () => {
             Hi, I'm Babaoye Esther
             <br className="hidden md:block" />
             <span className="inline-block text-[#3b82f6]">
-              Frontend Developer & Designer
+              Full Stack Developer & YouTube Scriptwriter
             </span>
           </h2>
           <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-            I bring ideas to life with code, crafting intuitive, responsive, and
-            aesthetic web experiences using React and Tailwind CSS.
+            I help brands grow through clean, scalable web apps — and help creators go viral with scripts that captivate, retain, and convert.
           </p>
-          <div className="flex items-center">
+          <div className="flex items-center flex-wrap gap-4">
             <Link
-              to="/projects"
-              className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#3b82f6] hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+              to="/web-projects"
+              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#3b82f6] hover:bg-blue-700 focus:shadow-outline focus:outline-none"
             >
-              View Projects
+              View Dev Work
             </Link>
             <Link
-              to="/contact"
-              className="inline-flex items-center font-semibold text-[#1f2937] transition-colors duration-200 hover:text-[#facc15]"
+              to="/scripts"
+              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#051d40] hover:bg-[#0f172a] focus:shadow-outline focus:outline-none"
             >
-              Contact Me
+              See Scripts
             </Link>
+            
           </div>
         </div>
       </div>

@@ -13,6 +13,9 @@ import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Resume from "./pages/Resume";
+import Scripts from "./pages/Scripts";
+import WebProjects from "./pages/WebProjects.jsx";
+import Testimonials from "./pages/Testimonials.jsx";
 
 
 function App() {
@@ -38,6 +41,9 @@ useEffect(() => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/resume" element={<Resume />} />
+        <Route path="/scripts" element={<Scripts />} />
+        <Route path="/web-projects" element={<WebProjects />} />
+        <Route path="/testimonials" element={<Testimonials />} />
       </Routes>
       <Footer />
       </>

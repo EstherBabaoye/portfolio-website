@@ -1,24 +1,20 @@
-// src/data/projectsData.js
-export const projects = [
+const projects = [
   {
     id: 1,
-    title: "Portfolio Website",
-    description: "A sleek and responsive developer portfolio built with React and Tailwind CSS.",
-    image: "/images/portfolio.png",
-    link: "https://your-portfolio.netlify.app",
+    title: "PowerOrg – Renewable Energy Website",
+    description:
+      "A responsive site built for PowerOrg to showcase scalable solar and wind energy solutions. Designed to attract enterprise clients with clear CTAs and a clean UI.",
+    image: "/images/powerorg.png", // rename your uploaded screenshot to this and place in /public/images
+    link: "https://powerorg.netlify.app/",
   },
   {
     id: 2,
-    title: "E-commerce App",
-    description: "A full-stack MERN application with product filtering and secure checkout.",
-    image: "/images/ecommerce.png",
-    link: "https://your-store.netlify.app",
-  },
-  {
-    id: 3,
-    title: "YouTube Script Generator",
-    description: "AI-powered tool for automating script generation for content creators.",
-    image: "/images/script-tool.png",
-    link: "https://your-script-tool.netlify.app",
+    title: "URBank – Digital Banking Platform",
+    description:
+      "URBank is a user-first digital banking interface built for simplicity, trust, and control. From tailored account options to secure mobile access, it empowers users to manage money confidently.",
+    image: "/images/urbank.png", // rename your second screenshot to this and place in /public/images
+    link: "https://urbank.netlify.app/",
   },
 ];
+
+export { projects };
