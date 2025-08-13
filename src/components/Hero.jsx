@@ -17,7 +17,7 @@ export const Hero = () => {
         <img
           className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
           src={HeroImage}
-          alt="Hero of Babaoye Esther"
+          alt="Hero of Esther Babaoye"
         />
       </div>
 
@@ -28,10 +28,10 @@ export const Hero = () => {
             Welcome
           </p>
           <h2 className="mb-5 font-sans text-4xl font-bold tracking-tight text-[#1f2937] sm:text-5xl sm:leading-none">
-            Hi, I'm Babaoye Esther
+            Hi, I'm  Esther Babaoye
             <br className="hidden md:block" />
             <span className="inline-block text-[#3b82f6]">
-              Full Stack Developer & YouTube Scriptwriter
+              Full Stack Web Developer & YouTube Scriptwriter
             </span>
           </h2>
           <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">

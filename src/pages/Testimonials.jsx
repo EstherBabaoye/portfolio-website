@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 export default function Testimonials() {
   useEffect(() => {
-    document.title = "Client Testimonials | Babaoye Esther";
+    document.title = "Client Testimonials | Esther Babaoye";
   }, []);
 
   return (

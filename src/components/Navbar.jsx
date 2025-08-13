@@ -10,7 +10,6 @@ export default function Navbar() {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Projects", path: "/projects" },
-    { name: "Resume", path: "/resume" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -19,7 +18,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
         {/* Logo / Name */}
         <h1 className="text-xl font-bold text-[#1f2937] uppercase">
-          Babaoye Esther
+          EB
         </h1>
 
         {/* Centered nav links on desktop */}

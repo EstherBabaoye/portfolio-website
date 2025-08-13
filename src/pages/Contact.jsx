@@ -9,7 +9,7 @@ import { SiUpwork } from "react-icons/si";
 
 export default function Contact() {
   useEffect(() => {
-    document.title = "Contact Me | Babaoye Esther";
+    document.title = "Contact Me | Esther Babaoye";
   }, []);
 
   return (

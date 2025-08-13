@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   useEffect(() => {
-    document.title = "Babaoye Esther | Portfolio";
+    document.title = "Esther Babaoye | Portfolio";
   }, []);
 
   return (

@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-white text-[#1f2937] text-center px-6 py-6 border-t border-gray-200 dark:bg-gray-900 dark:text-white">
       <div className="text-sm mb-3">
         &copy; {new Date().getFullYear()}{" "}
-        <span className="font-semibold">Babaoye Esther</span>. All rights reserved.
+        <span className="font-semibold">Esther Babaoye</span>. All rights reserved.
       </div>
 
       <div className="flex justify-center items-center space-x-5 text-xl">
