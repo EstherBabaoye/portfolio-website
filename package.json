@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "postbuild": "npm run generate:sitemap",
+    "postbuild": "",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
