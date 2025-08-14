@@ -1,6 +1,6 @@
 // scripts/generate-sitemap.mjs
 import { SitemapStream, streamToPromise } from "sitemap";
-import { createWriteStream, writeFileSync } from "fs";
+import { writeFileSync } from "fs";
 import { resolve } from "path";
 import routes from "../src/routesMap.js";
 
@@ -9,11 +9,7 @@ const SITE_URL = "https://esther-babaoye.netlify.app";
 async function main() {
   const sm = new SitemapStream({ hostname: SITE_URL });
 
-  // 1) Write streamed XML to dist (publish dir)
-  const distPath = resolve("dist", "sitemap.xml");
-  const ws = createWriteStream(distPath);
-  sm.pipe(ws);
-
+  // Feed routes
   const today = new Date().toISOString();
   for (const r of routes) {
     sm.write({
@@ -25,17 +21,21 @@ async function main() {
   }
   sm.end();
 
-  // 2) Grab the whole XML, prepend XML prolog, and also copy to public/
-  const xmlBuffer = await streamToPromise(sm);
-  let xml = xmlBuffer.toString("utf8");
-  if (!xml.trim().startsWith("<?xml")) {
-    xml = `<?xml version="1.0" encoding="UTF-8"?>\n` + xml;
-  }
+  // Get XML once
+  let xml = (await streamToPromise(sm)).toString("utf8");
 
-  const publicPath = resolve("public", "sitemap.xml");
-  writeFileSync(publicPath, xml);
+  // Strip BOM and ALL leading whitespace/newlines before the XML
+  xml = xml.replace(/^\uFEFF/, "").replace(/^\s+/, "");
 
-  console.log("✅ Sitemap saved to:", distPath, "and", publicPath);
+  // Ensure EXACTLY ONE xml declaration at the very start
+  xml = xml.replace(/^\s*<\?xml[^>]*\?>\s*/i, ""); // remove existing header if present
+  xml = `<?xml version="1.0" encoding="UTF-8"?>\n` + xml;
+
+  // Write ONLY to dist/ (Netlify publish folder)
+  const outPath = resolve("dist", "sitemap.xml");
+  writeFileSync(outPath, xml, { encoding: "utf8" });
+
+  console.log("✅ Clean sitemap written to", outPath);
 }
 
 main().catch((e) => {
