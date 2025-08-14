@@ -1,64 +1,61 @@
-import {
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Resume from "./pages/Resume";
 import Scripts from "./pages/Scripts";
 import WebProjects from "./pages/WebProjects.jsx";
 import Testimonials from "./pages/Testimonials.jsx";
 
+import routes from "./routesMap";
+
+// Optional: smooth scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [pathname]);
+  return null;
+}
+
+const componentMap = {
+  Home,
+  About,
+  Projects,
+  Contact,
+  Resume,
+  Scripts,
+  WebProjects,
+  Testimonials,
+};
 
 function App() {
-  const location = useLocation();
-
   useEffect(() => {
-  AOS.init({ once: true });
-}, []);
-
-useEffect(() => {
-  AOS.init({
-    duration: 1000,
-    once: true, // optional: animation only happens once
-  });
-}, []);
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   return (
     <>
       <Navbar />
+      <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/scripts" element={<Scripts />} />
-        <Route path="/web-projects" element={<WebProjects />} />
-        <Route path="/testimonials" element={<Testimonials />} />
+        {routes.map((r) => {
+          const Cmp = componentMap[r.key];
+          if (!Cmp) return null; // safety if a key is missing
+          return <Route key={r.path} path={r.path} element={<Cmp />} />;
+        })}
       </Routes>
       <Footer />
-      </>
+    </>
   );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-

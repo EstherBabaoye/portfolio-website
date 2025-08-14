@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Hero } from "../components/Hero";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   useEffect(() => {
@@ -10,6 +11,19 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>Esther Babaoye - Portfolio</title>
+        <meta
+          name="description"
+          content="Portfolio of Esther Babaoye — full-stack web developer and YouTube scriptwriter crafting high-retention stories and clean, performant UIs."
+        />
+        <meta property="og:title" content="Home | Esther Babaoye" />
+        <meta
+          property="og:description"
+          content="Explore my work in web development, UI design, and storytelling."
+        />
+      </Helmet>
+
       {/* Hero Section with fade-in animation */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -30,8 +44,9 @@ export default function Home() {
           Let’s Work Together
         </h2>
         <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-          Need a developer or a scriptwriter who understands your goals and delivers with clarity and speed?
-          Let’s collaborate and bring your next project to life.
+          Need a developer or a scriptwriter who understands your goals and
+          delivers with clarity and speed? Let’s collaborate and bring your next
+          project to life.
         </p>
         <Link
           to="/contact"

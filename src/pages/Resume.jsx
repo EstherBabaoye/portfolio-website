@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 export default function Resume() {
   useEffect(() => {
@@ -8,6 +9,19 @@ export default function Resume() {
 
   return (
     <>
+      <Helmet>
+        <title>Resume | Esther Babaoye</title>
+        <meta
+          name="description"
+          content="View Esther Babaoye's professional resume — skills, experience, and education."
+        />
+        <meta property="og:title" content="Resume | Esther Babaoye" />
+        <meta
+          property="og:description"
+          content="Discover my professional background, technical expertise, and career achievements."
+        />
+      </Helmet>
+
       {/* Hero / Header */}
       <motion.section
         className="bg-gradient-to-br from-[#e0f2fe] via-white to-[#f0fdf4] dark:from-[#0f172a] dark:via-[#1a1a1a] dark:to-[#0f172a] mt-8 py-20 px-6 md:px-12 text-center"

@@ -1,13 +1,27 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 export default function Projects() {
   useEffect(() => {
-      document.title = "Projects";
-    }, []);
+    document.title = "Projects";
+  }, []);
 
   return (
     <>
+      <Helmet>
+        <title>Projects | Esther Babaoye</title>
+        <meta
+          name="description"
+          content="Showcasing my portfolio of web development projects, UI designs, and creative works."
+        />
+        <meta property="og:title" content="Projects | Esther Babaoye" />
+        <meta
+          property="og:description"
+          content="Browse my completed projects in coding, UI/UX, and creative content."
+        />
+      </Helmet>
+
       {/* Web Development Projects */}
       <motion.section
         className="bg-gradient-to-br from-[#e0f2fe] via-white to-[#f0fdf4] dark:from-[#0f172a] dark:via-[#1a1a1a] dark:to-[#0f172a]  mt-8 py-20 px-6 md:px-12 text-center"
@@ -20,7 +34,9 @@ export default function Projects() {
             Web Development Projects
           </h2>
           <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-10 text-base md:text-lg">
-            From fintech to clean energy — I’ve built responsive, high-converting apps with React, Laravel, MongoDB, TailwindCSS, and more.
+            From fintech to clean energy — I’ve built responsive,
+            high-converting apps with React, Laravel, MongoDB, TailwindCSS, and
+            more.
           </p>
           <motion.a
             href="/web-projects"
@@ -45,7 +61,9 @@ export default function Projects() {
             YouTube Scriptwriting Projects
           </h2>
           <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-10 text-base md:text-lg">
-            I craft scroll-stopping YouTube scripts for channels in self-help, storytelling, commentary, and faceless niches — helping creators hit millions of views with powerful retention.
+            I craft scroll-stopping YouTube scripts for channels in self-help,
+            storytelling, commentary, and faceless niches — helping creators hit
+            millions of views with powerful retention.
           </p>
           <motion.a
             href="/scripts"
