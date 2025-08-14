@@ -22,7 +22,7 @@ export default function Navbar() {
         </h1>
 
         {/* Centered nav links on desktop */}
-        <ul className="hidden md:flex space-x-6 font-medium capitalize absolute left-1/2 -translate-x-1/2 text-[#1f2937]">
+        <ul className="hidden md:flex space-x-12 font-medium capitalize absolute left-1/2 -translate-x-1/2 text-[#1f2937]">
           {navItems.map((item, index) => (
             <li key={index}>
               <Link

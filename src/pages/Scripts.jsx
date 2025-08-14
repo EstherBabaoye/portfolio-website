@@ -64,11 +64,12 @@ export default function Scripts() {
 
                   {/* Buttons */}
                   <div className="mt-auto flex flex-col sm:flex-row gap-3">
+                    {/* Inside grid buttons */}
                     <a
                       href={sample.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center bg-gradient-to-r from-[#3b82f6] to-[#2563eb] hover:from-[#2563eb] hover:to-[#1d4ed8] text-white font-medium py-2 px-4 rounded-md shadow-md transition-all duration-300"
+                      className="flex-1 text-center bg-slate-800 hover:bg-slate-700 text-white font-medium py-2 px-4 rounded-lg shadow-sm transition-all duration-200"
                     >
                       View Script
                     </a>
@@ -78,7 +79,7 @@ export default function Scripts() {
                         href={sample.youtube}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 text-center bg-[#facc15] hover:bg-yellow-400 text-[#1f2937] font-medium py-2 px-4 rounded-md shadow-md transition-all duration-300"
+                        className="flex-1 text-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-medium py-2 px-4 rounded-lg border border-slate-300 transition-all duration-200"
                       >
                         Watch Video
                       </a>
@@ -89,20 +90,22 @@ export default function Scripts() {
             ))}
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Section */}
           <div className="mt-16 flex flex-col sm:flex-row justify-center gap-4">
+            {/* Primary CTA */}
             <Link
               to="/contact"
-              className="inline-block bg-[#facc15] hover:bg-yellow-400 text-[#1f2937] font-semibold py-3 px-8 rounded-lg shadow hover:scale-105 transition-all duration-300"
+              className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-8 rounded-full shadow-sm transition-all duration-200"
             >
               Hire Me for a Script
             </Link>
 
+            {/* Secondary CTA */}
             <a
               href="https://drive.google.com/drive/folders/1S08tXJSkvg5V7hyUh9EyY9JdILkWJLx5?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-gradient-to-r from-[#3b82f6] to-[#2563eb] hover:from-[#2563eb] hover:to-[#1d4ed8] text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-all duration-300"
+              className="inline-block bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold py-3 px-8 rounded-full border border-slate-300 transition-all duration-200"
             >
               View All Scripts
             </a>

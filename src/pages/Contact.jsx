@@ -1,12 +1,54 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FaGithub, FaEnvelope, FaWhatsapp, FaPhone } from "react-icons/fa";
 import { SiUpwork } from "react-icons/si";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 export default function Contact() {
   useEffect(() => {
     document.title = "Contact Me | Esther Babaoye";
   }, []);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState({ message: "", type: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ message: "", type: "" });
+    setIsSubmitting(true);
+
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_API_BASE_URL}/send-mail`,
+        formData
+      );
+      setStatus({ message: "Message sent successfully!", type: "success" });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (err) {
+      setStatus({ message: "Failed to send message. Please try again.", type: "error" });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Auto-hide status after 10 seconds
+  useEffect(() => {
+    if (status.message) {
+      const timer = setTimeout(() => {
+        setStatus({ message: "", type: "" });
+      }, 10000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
   return (
     <>
@@ -72,26 +114,57 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <form className="max-w-xl mx-auto bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            className="max-w-xl mx-auto bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow space-y-4"
+          >
+            {/* Status Message */}
+            {status.message && (
+              <p
+                className={`text-center font-medium ${
+                  status.type === "success" ? "text-green-600" : "text-red-600"
+                }`}
+              >
+                {status.message}
+              </p>
+            )}
+
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
               className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#3b82f6] dark:bg-gray-700 dark:border-gray-600"
             />
             <input
               type="email"
+              name="email"
               placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
               className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#3b82f6] dark:bg-gray-700 dark:border-gray-600"
             />
             <textarea
+              name="message"
               placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              required
               className="w-full p-3 border border-gray-300 rounded h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#3b82f6] dark:bg-gray-700 dark:border-gray-600"
             />
             <button
               type="submit"
-              className="w-full bg-[#051d40] text-white py-3 rounded hover:bg-[#0f172a] transition duration-300"
+              disabled={isSubmitting}
+              className={`w-full py-3 rounded transition duration-300 ${
+                isSubmitting
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-[#051d40] text-white hover:bg-[#0f172a]"
+              }`}
             >
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>

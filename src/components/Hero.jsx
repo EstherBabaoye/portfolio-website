@@ -24,12 +24,11 @@ export const Hero = () => {
       {/* Text Side */}
       <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
         <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
-          <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-[#1f2937] uppercase rounded-full bg-[#facc15]">
-            Welcome
+          <p className="inline-block px-3 py-px mb-4 text-xl font-semibold tracking-wider text-[#1f2937] uppercase rounded-full bg-[#facc15]">
+            ESTHER BABAOYE
           </p>
           <h2 className="mb-5 font-sans text-4xl font-bold tracking-tight text-[#1f2937] sm:text-5xl sm:leading-none">
-            Hi, I'm  Esther Babaoye
-            <br className="hidden md:block" />
+            
             <span className="inline-block text-[#3b82f6]">
               Full Stack Web Developer & YouTube Scriptwriter
             </span>
