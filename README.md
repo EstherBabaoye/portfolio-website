@@ -1,12 +1,36 @@
-# React + Vite
+# Esther Babaoye | Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive portfolio website built with **React, Vite, Tailwind CSS, and Framer Motion**, showcasing my work as a **Full-Stack Developer & YouTube Scriptwriter**.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit-blue?style=for-the-badge&logo=netlify)](https://esther-babaoye.netlify.app)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📸 Preview
+![Portfolio Screenshot](public/preview.png)  
+*(Replace with your actual screenshot in the `public/` folder)*  
+
+---
+
+## ✨ Features
+- ⚡ **Fast & Responsive** — Built with Vite + React + Tailwind CSS  
+- 🎨 **Dark/Light Mode Toggle** with device preference support  
+- 🖼️ **Animated UI** using Framer Motion  
+- 🔍 **SEO Optimized** with meta tags, Open Graph, and structured data  
+- 📂 Pages: **Home, About, Projects, Resume, Contact**  
+- 📱 Mobile-first design  
+
+---
+
+## 🛠️ Tech Stack
+- **Frontend:** React, Vite, Tailwind CSS  
+- **Animations:** Framer Motion  
+- **Icons:** React Icons  
+- **SEO:** React Helmet Async  
+- **Deployment:** Netlify  
+
+---
+
