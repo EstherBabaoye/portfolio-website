@@ -16,6 +16,7 @@ import WebProjects from "./pages/WebProjects.jsx";
 import Testimonials from "./pages/Testimonials.jsx";
 
 import routes from "./routesMap";
+import { ThemeProvider } from "./context/ThemeContext"; // ✅ NEW
 
 // Optional: smooth scroll to top on route change
 function ScrollToTop() {
@@ -43,18 +44,21 @@ function App() {
   }, []);
 
   return (
-    <>
-      <Navbar />
-      <ScrollToTop />
-      <Routes>
-        {routes.map((r) => {
-          const Cmp = componentMap[r.key];
-          if (!Cmp) return null; // safety if a key is missing
-          return <Route key={r.path} path={r.path} element={<Cmp />} />;
-        })}
-      </Routes>
-      <Footer />
-    </>
+    <ThemeProvider>
+      {/* Optional global bg/text colors that react to theme */}
+      <div className="min-h-screen bg-white text-gray-900 dark:bg-[#0b0b12] dark:text-gray-100 transition-colors">
+        <Navbar />
+        <ScrollToTop />
+        <Routes>
+          {routes.map((r) => {
+            const Cmp = componentMap[r.key];
+            if (!Cmp) return null; // safety if a key is missing
+            return <Route key={r.path} path={r.path} element={<Cmp />} />;
+          })}
+        </Routes>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

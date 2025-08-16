@@ -1,7 +1,5 @@
-import React from "react";
-import { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import {
   FaReact,
   FaNodeJs,
@@ -30,8 +28,8 @@ import {
   SiFramer,
   SiPhp,
 } from "react-icons/si";
-
 import { Link } from "react-router-dom";
+import Seo from "../components/Seo";
 import Image from "../assets/IMG_8307.JPG";
 
 /** ---------------------------------------
@@ -45,10 +43,7 @@ class SectionBoundary extends React.Component {
   static getDerivedStateFromError() {
     return { hasError: true };
   }
-  componentDidCatch(error, info) {
-    // Optional: log to monitoring here
-    // console.error(error, info);
-  }
+  componentDidCatch() {}
   render() {
     if (this.state.hasError) {
       return (
@@ -143,19 +138,11 @@ export default function About() {
 
   return (
     <>
-      <Helmet>
-        <title>About | Esther Babaoye</title>
-        <meta
-          name="description"
-          content="Full-stack developer and YouTube scriptwriter crafting high-retention stories and clean, performant UIs."
-        />
-        <meta property="og:title" content="About | Esther Babaoye" />
-        <meta
-          property="og:description"
-          content="Full-stack developer and YouTube scriptwriter crafting high-retention stories and clean, performant UIs."
-        />
-        <meta property="og:type" content="profile" />
-      </Helmet>
+      <Seo
+        title="About"
+        description="Learn more about Esther Babaoye — a full-stack developer and YouTube scriptwriter shipping clean, performant UIs and scripts audiences actually finish."
+        path="/about"
+      />
 
       {/* Skip link for keyboard users */}
       <a
@@ -168,7 +155,7 @@ export default function About() {
       {/* Hero / Welcome Section */}
       <header>
         <motion.section
-          className="bg-gradient-to-br from-[#e0f2fe] via-white to-[#f0fdf4] dark:from-[#0f172a] dark:via-[#1a1a1a] dark:to-[#0f172a] mt-8 py-20 px-6 md:px-12"
+          className="bg-gradient-to-br from-[#e0f2fe] via-white to-[#f0fdf4] dark:from-[#0b1220] dark:to-[#111827] mt-8 py-20 px-6 md:px-12"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
           animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -180,39 +167,37 @@ export default function About() {
                 ABOUT ME
               </h1>
 
-              {/* Value prop */}
               <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                 I’m <span className="font-semibold">Esther Babaoye</span> — a
-                full‑stack developer and YouTube scriptwriter. I ship clean,
+                full-stack developer and YouTube scriptwriter. I ship clean,
                 fast UIs and scripts that people actually finish.
               </p>
 
-              {/* Micro badges */}
               <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">
                 Fintech • History/Documentary • Lifestyle • Golf
               </p>
 
               {/* Role chips */}
               <div className="flex flex-wrap gap-2 mt-5">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-gray-200/70 dark:border-white/10 text-sm font-medium">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-gray-200/70 dark:border-white/10 hover:dark:border-white/20 text-sm font-medium transition">
                   <span className="w-2 h-2 rounded-full bg-[#3b82f6]" />
                   Full-Stack Developer
                 </span>
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-gray-200/70 dark:border-white/10 text-sm font-medium">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-gray-200/70 dark:border-white/10 hover:dark:border-white/20 text-sm font-medium transition">
                   <span className="w-2 h-2 rounded-full bg-[#3b82f6]" />
                   YouTube Scriptwriter
                 </span>
               </div>
 
-              {/* Proof points / metrics */}
+              {/* Proof points */}
               <ul className="mt-5 flex flex-wrap gap-3 text-sm text-gray-600 dark:text-gray-300">
-                <li className="px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-gray-200/70 dark:border-white/10">
+                <li className="px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-gray-200/70 dark:border-white/10 hover:dark:border-white/20 transition">
                   38k views in 9 days
                 </li>
-                <li className="px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-gray-200/70 dark:border-white/10">
-                  510k‑view project
+                <li className="px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-gray-200/70 dark:border-white/10 hover:dark:border-white/20 transition">
+                  510k-view project
                 </li>
-                <li className="px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-gray-200/70 dark:border-white/10">
+                <li className="px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-gray-200/70 dark:border-white/10 hover:dark:border-white/20 transition">
                   20+ scripts shipped
                 </li>
               </ul>
@@ -275,8 +260,8 @@ export default function About() {
                 that people actually finish.
               </p>
 
-              <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur p-6 md:p-8 shadow-sm">
-                {/* Tech Stack — icons only, staggered */}
+              <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur p-6 md:p-8 shadow-sm dark:backdrop-blur-sm">
+                {/* Tech Stack */}
                 <motion.div
                   variants={container}
                   initial="hidden"
@@ -291,10 +276,9 @@ export default function About() {
                   ))}
                 </motion.div>
 
-                {/* Separator */}
                 <div className="my-8 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-white/10" />
 
-                {/* Scriptwriting — icons only, staggered */}
+                {/* Scriptwriting */}
                 <motion.div
                   variants={container}
                   initial="hidden"
@@ -309,10 +293,9 @@ export default function About() {
                   ))}
                 </motion.div>
 
-                {/* Separator */}
                 <div className="my-8 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-white/10" />
 
-                {/* Universal skills — chips, staggered */}
+                {/* Universal skills */}
                 <motion.div
                   variants={container}
                   initial="hidden"
@@ -324,7 +307,7 @@ export default function About() {
                     <motion.span
                       key={skill}
                       variants={item}
-                      className="px-3 py-2 rounded-full border border-gray-300 dark:border-white/10 bg-white dark:bg-white/10 text-sm md:text-base text-[#1f2937] dark:text-white hover:shadow-sm hover:-translate-y-0.5 transition-all"
+                      className="px-3 py-2 rounded-full border border-gray-300 dark:border-white/10 bg-white dark:bg-white/10 text-sm md:text-base text-[#1f2937] dark:text-white hover:shadow-sm hover:-translate-y-0.5 transition-all hover:dark:border-white/20 hover:dark:shadow-[0_0_8px_rgba(59,130,246,0.4)]"
                     >
                       {skill}
                     </motion.span>
@@ -337,7 +320,7 @@ export default function About() {
 
         {/* CTA Footer */}
         <motion.section
-          className="bg-gradient-to-br from-[#f8fafc] via-white to-[#f0fdf4] dark:from-[#0b1220] dark:via-[#0f172a] dark:to-[#0b1220] py-16 px-6 md:px-12 text-center"
+          className="bg-gradient-to-br from-[#f8fafc] via-white to-[#f0fdf4] dark:from-[#0b1220] dark:to-[#1e1b4b] py-16 px-6 md:px-12 text-center"
           initial={sectionInitial}
           whileInView={sectionWhileInView}
           viewport={{ once: true, amount: 0.2 }}
@@ -372,18 +355,3 @@ export default function About() {
     </>
   );
 }
-
-/* ---------------------------------------
-   OPTIONAL SEO (requires react-helmet-async)
-   Uncomment if you have Helmet set up:
-
-import { Helmet } from "react-helmet-async";
-
-<Helmet>
-  <title>About | Esther Babaoye</title>
-  <meta name="description" content="Full‑stack developer and YouTube scriptwriter crafting high‑retention stories and clean, performant UIs." />
-  <meta property="og:title" content="About | Esther Babaoye" />
-  <meta property="og:description" content="Full‑stack developer and YouTube scriptwriter crafting high‑retention stories and clean, performant UIs." />
-  <meta property="og:type" content="profile" />
-</Helmet>
----------------------------------------- */

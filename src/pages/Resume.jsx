@@ -9,6 +9,12 @@ export default function Resume() {
 
   return (
     <>
+      <Seo
+        title="Resume"
+        description="View Esther Babaoye's professional resume — skills, experience, education, and career achievements."
+        path="/resume"
+      />
+
       <Helmet>
         <title>Resume | Esther Babaoye</title>
         <meta
@@ -24,16 +30,16 @@ export default function Resume() {
 
       {/* Hero / Header */}
       <motion.section
-        className="bg-gradient-to-br from-[#e0f2fe] via-white to-[#f0fdf4] dark:from-[#0f172a] dark:via-[#1a1a1a] dark:to-[#0f172a] mt-8 py-20 px-6 md:px-12 text-center"
+        className="bg-gradient-to-br from-[#e0f2fe] via-white to-[#f0fdf4] mt-8 py-20 px-6 md:px-12 text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1f2937] dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1f2937]">
             My Resume
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-10 text-base md:text-lg">
+          <p className="text-gray-700 max-w-2xl mx-auto mb-10 text-base md:text-lg">
             Explore my experience, skills, and achievements. You can view it
             right on this page or download a copy for later.
           </p>
@@ -58,7 +64,7 @@ export default function Resume() {
               download
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-block bg-white text-[#1f2937] dark:bg-gray-800 dark:text-white border border-gray-200 dark:border-gray-700 font-semibold py-3 px-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+              className="inline-block bg-white text-[#1f2937] border border-gray-200 font-semibold py-3 px-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
               aria-label="Download resume"
             >
               Download CV
@@ -69,23 +75,22 @@ export default function Resume() {
 
       {/* Embedded Viewer */}
       <motion.section
-        className="bg-white dark:bg-gray-900 py-12 px-6 md:px-12"
+        className="bg-white py-12 px-6 md:px-12"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.1 }}
       >
         <div className="max-w-5xl mx-auto">
-          <div className="w-full h-[80vh] border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden shadow-sm">
-            {/* Prefer iframe for broad support */}
+          <div className="w-full h-[80vh] border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white">
             <iframe
               src="/Esther-Babaoye-CV.pdf"
               title="Esther Babaoye - Resume"
               className="w-full h-full"
             />
 
-            {/* Graceful fallback for browsers that block inline PDFs */}
-            <div className="p-6 bg-white dark:bg-gray-900 text-center hidden">
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
+            {/* Fallback */}
+            <div className="p-6 bg-white text-center hidden">
+              <p className="text-gray-700 mb-4">
                 Your browser can’t display PDFs inline.
               </p>
               <a

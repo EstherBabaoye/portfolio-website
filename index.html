@@ -1,27 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- ✅ Google Search Console Verification -->
-    <meta
-      name="google-site-verification"
-      content="dt8wOchMPTzDHAzH3W3QR3CWj4uPQGaA9sUU_mZa3mE"
-    />
+    <!-- ✅ Dark/Light no-flash script -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var pref =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = saved || (pref ? "dark" : "light");
+          if (theme === "dark") document.documentElement.classList.add("dark");
+        } catch (_) {}
+      })();
+    </script>
 
-    <!-- ✅ Basic Meta Tags -->
+    <!-- ✅ Basic Meta -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- ✅ Title & Description for SEO -->
     <title>Esther Babaoye | Full-Stack Developer & YouTube Scriptwriter</title>
     <meta
       name="description"
       content="Portfolio of Esther Babaoye, a Full-Stack Developer & YouTube Scriptwriter crafting high-retention stories and clean, performant web applications."
     />
 
-    <!-- ✅ Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/IMG_8306.JPG" />
+    <!-- ✅ Canonical -->
+    <link rel="canonical" href="https://esther-babaoye.netlify.app/" />
 
-    <!-- ✅ Open Graph (Social Sharing) -->
+    <!-- ✅ Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- ✅ Theme Color for browsers -->
+    <meta
+      name="theme-color"
+      content="#3b82f6"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0b1220"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <!-- ✅ Google Search Console Verification -->
+    <meta
+      name="google-site-verification"
+      content="dt8wOchMPTzDHAzH3W3QR3CWj4uPQGaA9sUU_mZa3mE"
+    />
+
+    <!-- ✅ Open Graph -->
+    <meta property="og:type" content="website" />
     <meta
       property="og:title"
       content="Esther Babaoye | Full-Stack Developer & YouTube Scriptwriter"
@@ -35,9 +64,8 @@
       content="https://esther-babaoye.netlify.app/IMG_8306.JPG"
     />
     <meta property="og:url" content="https://esther-babaoye.netlify.app/" />
-    <meta property="og:type" content="website" />
 
-    <!-- ✅ Twitter Card -->
+    <!-- ✅ Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
@@ -52,7 +80,7 @@
       content="https://esther-babaoye.netlify.app/IMG_8306.JPG"
     />
 
-    <!-- ✅ Schema.org Structured Data -->
+    <!-- ✅ Schema.org JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
